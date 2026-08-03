@@ -1,0 +1,148 @@
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.form-page {
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.25rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.form-card h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.form-card .subtitle {
+  margin: 0 0 1.75rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+input, select {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #0f0f14;
+  color: var(--color-text);
+}
+
+input::placeholder {
+  color: #55555f;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(245, 185, 66, 0.15);
+}
+
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.checkbox-field input {
+  width: auto;
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+}
+
+.error--block {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #1a1205;
+  box-shadow: 0 4px 14px rgba(245, 185, 66, 0.25);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.btn--ghost:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}

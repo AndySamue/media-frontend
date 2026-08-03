@@ -1,0 +1,45 @@
+<div class="page-header">
+  <div>
+    <span class="eyebrow">Tu colección</span>
+    <h2>Catálogo de medios</h2>
+    <p class="subtitle">Todo lo que has visto (o quieres ver)</p>
+  </div>
+  <a routerLink="/media/nuevo" class="btn btn--primary">+ Agregar nuevo</a>
+</div>
+
+@if (loading) {
+  <p class="state-message">Cargando...</p>
+} @else if (error) {
+  <p class="state-message state-message--error">{{ error }}</p>
+} @else if (items.length === 0) {
+  <div class="empty-state">
+    <span class="empty-state__icon">🎞️</span>
+    <p>Todavía no hay nada en tu catálogo.</p>
+    <a routerLink="/media/nuevo" class="btn btn--primary">Agregar el primero</a>
+  </div>
+} @else {
+  <div class="media-grid">
+    @for (item of items; track item.id) {
+      <div class="media-card">
+        <div class="media-card__poster">
+          <span class="media-card__poster-icon">{{ item.type === 'PELICULA' ? '🎬' : '📺' }}</span>
+        </div>
+        <div class="media-card__body">
+          <div class="media-card__top">
+            <span class="badge" [class.badge--pelicula]="item.type === 'PELICULA'" [class.badge--serie]="item.type === 'SERIE'">
+              {{ item.type === 'PELICULA' ? 'Película' : 'Serie' }}
+            </span>
+            <span class="badge" [class.badge--visto]="item.seen" [class.badge--no-visto]="!item.seen">
+              {{ item.seen ? '✓ Visto' : 'Pendiente' }}
+            </span>
+          </div>
+          <h3 class="media-card__title">{{ item.title }}</h3>
+          <div class="media-card__meta">
+            <span>{{ item.year }}</span>
+            <span class="media-card__rating">★ {{ item.rating }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
